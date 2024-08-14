@@ -12,13 +12,13 @@ function Patients() {
   useEffect(() => {
     console.log(import.meta.env);
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/patients`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/patients`)
       .then((response) => setUsers(response.data.patients));
   }, []);
 
   const handleDelete = (id) => {
     axios
-      .delete(`${import.meta.env.VITE_BASE_URL}/patients/${id}`)
+      .delete(`${import.meta.env.VITE_BASE_URL}/api/patients/${id}`)
       .then((res) => {
         console.log(res);
         setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));

@@ -21,7 +21,7 @@ function CreatePatients() {
   useEffect(() => {
     // Fetch the list of doctors from the API
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/doctors`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/doctors`)
       .then((response) => setDoctors(response.data.data))
       .catch((error) => console.error("Error fetching doctors:", error));
   }, []);
@@ -62,7 +62,7 @@ function CreatePatients() {
     };
 
     axios
-      .post(`${import.meta.env.VITE_BASE_URL}/patients`, userData)
+      .post(`${import.meta.env.VITE_BASE_URL}/api/patients`, userData)
       .then((result) => {
         console.log(result);
         navigate("/");

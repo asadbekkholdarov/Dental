@@ -12,7 +12,7 @@ function Report() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/reports/weekly`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/reports/weekly`)
       .then((response) => {
         setWeeklyReport(response.data);
         setCurrentReport(response.data);
@@ -21,7 +21,7 @@ function Report() {
 
   const fetchDailyReport = () => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/reports/daily`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/reports/daily`)
       .then((response) => {
         setDailyReport(response.data);
         setCurrentReport(response.data);

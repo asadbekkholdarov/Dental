@@ -17,7 +17,7 @@ function Doctors() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/doctors`)
+      .get(`${import.meta.env.VITE_BASE_URL}/api/doctors`)
       .then((data) => setDoctors(data.data.data))
       .catch((err) => console.error(err));
   }, []);
@@ -31,7 +31,7 @@ function Doctors() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`${import.meta.env.VITE_BASE_URL}/doctors/${id}`)
+      .delete(`${import.meta.env.VITE_BASE_URL}/api/doctors/${id}`)
       .then((res) => {
         setDoctors((prevDoctors) =>
           prevDoctors.filter((doctor) => doctor._id !== id)
@@ -44,7 +44,7 @@ function Doctors() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/doctors`,
+        `${import.meta.env.VITE_BASE_URL}/api/doctors`,
         newDoctor
       );
       setDoctors([...doctors, response.data.data]);
