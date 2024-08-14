@@ -18,7 +18,7 @@ function MedicalHistory() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/api/patients/${patientId}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/patients/${patientId}`)
       .then((response) => {
         setMedicalHistory(response.data.patient);
       })
@@ -27,7 +27,7 @@ function MedicalHistory() {
       });
 
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/api/doctors`)
+      .get(`${import.meta.env.VITE_BASE_URL}/doctors`)
       .then((response) => {
         setDoctors(response.data.data);
       })
@@ -51,7 +51,7 @@ function MedicalHistory() {
       newEntry,
     ];
     axios
-      .put(`${import.meta.env.VITE_BASE_URL}/api/patients/${patientId}`, {
+      .put(`${import.meta.env.VITE_BASE_URL}/patients/${patientId}`, {
         ...medicalHistory,
         medicalHistory: updatedMedicalHistory,
       })

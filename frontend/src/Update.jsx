@@ -18,7 +18,7 @@ function Update() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/api/patients/${patientId}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/patients/${patientId}`)
       .then((response) => {
         const {
           firstName,
@@ -75,10 +75,7 @@ function Update() {
     };
 
     axios
-      .put(
-        `${import.meta.env.VITE_BASE_URL}/api/patients/${patientId}`,
-        userData
-      )
+      .put(`${import.meta.env.VITE_BASE_URL}/patients/${patientId}`, userData)
       .then((result) => {
         console.log(result);
         navigate("/");
